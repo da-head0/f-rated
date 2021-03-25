@@ -1,20 +1,18 @@
 ---
 name: Task Card
-about: Suggest an idea for this project
+about: 작업 내용을 적어주세요
 title: "[TASK] 작업 내용을 적어주세요"
 labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+#### Todo
+> 해당 작업이 완성되기 위해 할 작업 리스트
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+1.
+2.
+3.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+##### 참고
+>
