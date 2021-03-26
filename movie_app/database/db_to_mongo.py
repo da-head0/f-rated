@@ -16,6 +16,11 @@ client = MongoClient(f"mongodb+srv://{user}:{password}@{host}/{database_name}?re
 
 db = client.frated
 
+# with open('imdb_0326.json') as json_file:
+#     json_data = json.load(json_file)
+# for title in json_data:
+#     db.movie.insert_one(title)
+
 # ServerStat = db.command("serverStatus")
 # print(ServerStat)
 

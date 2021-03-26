@@ -68,9 +68,10 @@ def create_app():
             }
             ]
 
-    @app.route('/')
-    def hello():
-        return jsonify(movies)
+    @app.route('/movies')
+    def get_movies():
+        movies = Movie.objects().to_json()
+        return Response(movies, mimetype="application/json", status=200)
 
     return app
 

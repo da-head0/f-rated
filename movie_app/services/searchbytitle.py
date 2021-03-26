@@ -7,3 +7,6 @@ def searchkeyword(keyword):
 
 def imdbratingover(num):
     return Movie.objects(imdbRating__gte=num)
+
+
+searchkeyword('Captain Marvel')
