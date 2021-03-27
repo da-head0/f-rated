@@ -1,4 +1,4 @@
-from .db import db
+from database.db import *
 #from bson.objectid import ObjectId
 
 # db랑 연동되면 Movie -> movie 라는 collection이 만들어진다.

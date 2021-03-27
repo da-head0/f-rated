@@ -27,7 +27,7 @@ body {
   text-align: left;
 }
 .v2_381 {
-  width: 449px;
+  width: 313px;
   height: 32px;
   background: url("../images/v2_381.png");
   background-repeat: no-repeat;
@@ -116,44 +116,6 @@ body {
   left: 8px;
   font-family: Inter;
   font-weight: Regular;
-  font-size: 14px;
-  opacity: 1;
-  text-align: left;
-}
-.v2_388 {
-  width: 110px;
-  height: 32px;
-  background: rgba(239,232,216,1);
-  padding: 8px 8px;
-  margin: 8px;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 339px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-}
-.v2_389 {
-  width: 10px;
-  height: 12px;
-  background: rgba(229,75,75,1);
-  opacity: 1;
-  position: absolute;
-  top: 9px;
-  left: 8px;
-  border: 2px solid rgba(229,75,75,1);
-}
-.v2_390 {
-  width: 76px;
-  color: rgba(229,75,75,1);
-  position: absolute;
-  top: 8px;
-  left: 26px;
-  font-family: Inter;
-  font-weight: Semi Bold;
   font-size: 14px;
   opacity: 1;
   text-align: left;

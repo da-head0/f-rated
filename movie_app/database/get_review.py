@@ -2,16 +2,24 @@ import requests
 from bs4 import BeautifulSoup
 
 titleid = 'tt0103074'
-testurl = f"https://www.imdb.com/title/{titleid}/reviews?ref_=tt_ql_3" # Most Helpful
+testurl = f"https://www.imdb.com/title/{titleid}/keywords?ref_=tt_stry_kw"
 
+# f"https://www.imdb.com/title/{titleid}/reviews?ref_=tt_ql_3" # Most Helpful
 r = requests.get(url=testurl)
 # create a BeautifulSoup object
 soup = BeautifulSoup(r.text, 'html.parser')
 
 # Top 5 review
-con = soup.find_all("div",{'class':'text show-more__control'})[:4]
+con = soup.find_all("td","data-item-keyword") #("span",{'class':'itemprop'}
+conlist = []
 for c in con:
-    print(c.text)
+    conlist.append(c.text)
+print(conlist)
+
+# # Top 5 review
+# con = soup.find_all("div",{'class':'text show-more__control'})[:4]
+# for c in con:
+#     print(c.text)
 
 # # Genre list
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>추천받고 싶은 영화를 입력하세요</title>
+</head>
+<body>
+    <h2>오늘 보고싶은 영화는 무엇인가요?</h2>
+    <form method="POST" action="/input">
+        <p>
+            <label for="genre"> 보고싶은 장르 : </label>
+            <input type="text" name="genre" value="Comedy, Horror, Action" class="form-control" placeholder="Enter user">
+            <input type="submit" class="btn btn-primary" value="탐색">           
+        </p>
+        <p>
+            <label for="keyword"> 관심있는 키워드: </label>
+            <input type="text" name="keyword" value="여성감독, 호탕한, 복수">
+            <input type="submit" class="btn btn-primary" value="탐색">
+        </p>
+    </form>
+    <div>
+        <p>
+            {% if genre == None %}
+                <h5> 장르를 입력하세요. </h5>
+            {% else %}
+                <h5> {{genre}}} 를 입력받았습니다. </h5>
+            {% endif %}
+        </p>
+    </div>
+    {% if data %}
+    <p><b>Title:</b><br> {{ movie.Title }}</p>
+    <p><b>Genre:</b><br> {{ movie.Genre }}</p>
+    <p><b>Kind:</b><br> {{ data[3] }}</p>
+    {% for mov in movie %}
+    <img src={{ mov.Poster }}>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

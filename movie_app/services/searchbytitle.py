@@ -1,8 +1,11 @@
-from movie_app.database.models import Movie
+from models.models import Movie
 
 def searchkeyword(keyword):
     # object 뒤에는 class__
     return Movie.objects(title__contains=keyword)
+            #movies = Movie.objects(title="Daisies") #이거 하나 건드렸다가 ㅋㅋㅋㅋ 안됨.,...
+        #print(movies)
+        #return movies, 200
 
 
 def imdbratingover(num):
