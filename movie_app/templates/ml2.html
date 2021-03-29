@@ -11,10 +11,19 @@
 
 {% block main_body  %}
 <form method="GET" action="/recomtest">
-    <label for="inputlg">추천할 영화</label>
-    <input name="movie" class="form-control input-lg" id="inputlg" type="text">
-    <input type="submit" class="btn btn-primary" value="추천받기"/>
-    <p><strong>{{ movielist }}</strong></p>
+    <label for="inputlg">입력한 영화의 키워드 / 장르 / 배우 / 감독 / 수상이력을 분석해 추천합니다. </label>
+    <input name="movie" class="form-control input-lg" id="inputlg" type="text" value="ex) Frozen, Thelma & Louise">
+    <br>
+    <input type="submit" class="btn btn-primary btn-sm btn-block" value="추천받기"/>
+    {% if movieinfo %}
+    <br>
+    <h3> {{movieinfo.Title}} 과 유사한 영화는 </h3>
+    <br>
+    {% for item in movielist %}
+    <h5>{{ item }}</h5>
+    {% endfor %}
+    <h5>입니다.</h5>
 </form>
+{% endif %}
 {% endblock %}
 </html>

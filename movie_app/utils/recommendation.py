@@ -100,8 +100,9 @@ def recommendation_by_title(get_title):
         이렇게 뜸
         """
     results = get_recommendations(get_title, cosine_sim2)
-    #resultslist = results.to_list()
-    return results.to_string(index=False)
+    #resultslist = results.to_list() 
+    # results.to_string(index=False)
+    return results.to_list()
 
 
 def msg_processor(msg_code):

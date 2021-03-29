@@ -12,16 +12,38 @@ movies = Blueprint('movies', __name__)
 #     movies = Movie.objects().to_json()
 #     return Response(movies, mimetype="application/json", status=200)
 
+# @movies.route('/searchbyid/<imdbid>', methods=['GET'])
+# def search_movie_by_id(imdbid):
+#     allmovie = Movie.objects(imdbID=imdbid).to_json() # json 파일 자체가 조회됨
+#     return Response(allmovie, mimetype="application/json", status=200)
 
-@movies.route('/searchbyid/<imdbid>', methods=['GET'])
-def search_movie_by_id(imdbid):
-    allmovie = Movie.objects(imdbID=imdbid).to_json() # json 파일 자체가 조회됨
-    return Response(allmovie, mimetype="application/json", status=200)
+# @movies.route('/searchbytitle/<Title>', methods=['GET'])
+# def search_movie_by_title(Title):
+#     allmovie = Movie.objects(Title=Title) # 이렇게 하니까 models.py에 있는 repr이 실행되어 원하는 항목만 조회할 수 있음
+#     return f'{allmovie}', 200
 
-@movies.route('/searchbytitle/<Title>', methods=['GET'])
-def search_movie_by_title(Title):
-    allmovie = Movie.objects(Title=Title) # 이렇게 하니까 models.py에 있는 repr이 실행되어 원하는 항목만 조회할 수 있음
-    return f'{allmovie}', 200
+@movies.route('/searchbykeyword', methods=['GET'])
+def search_movie_by_keyword():
+    keyword = request.args.get('keyword')
+    keyword = str(keyword)
+    searchbyid = Movie.objects(keywords__icontains=keyword)
+    #searchbyid = Movie.objects(tags__in=[keyword])
+    #return Response(allmovie, mimetype="application/json", status=200)
+    return render_template('search.html', movies = searchbyid) #msg=delete_msg
+
+@movies.route('/searchbyid', methods=['GET'])
+def search_movie_by_id():
+    imdbid = request.args.get('imdbid')
+    searchbyid = Movie.objects(imdbID=imdbid)
+    #return Response(allmovie, mimetype="application/json", status=200)
+    return render_template('search.html', movies = searchbyid) #msg=delete_msg
+
+@movies.route('/searchbytitle', methods=['GET'])
+def search_movie_by_title():
+    title = request.args.get('movietitle')
+    searchbytitle = Movie.objects(Title=title) # 이렇게 하니까 models.py에 있는 repr이 실행되어 원하는 항목만 조회할 수 있음
+    #return f'{allmovie}', 200
+    return render_template('search.html', movies=searchbytitle)
 
 @movies.route('/recommendation/<title>')
 def make_recommend_function(title):
@@ -41,7 +63,11 @@ def test():
             title = request.args.get('movie')
             movie = Movie.objects(Title=title).first()
             results = recommendation_by_title(title)
-            return render_template('ml2.html', movielist = results, movieinfo=movie)
+            if title:
+                return render_template('ml2.html', movielist = results, movieinfo=movie)
+            else:
+                return render_template('ml2.html')
+
         except:
             return render_template('ml2.html')
 

@@ -1,0 +1,79 @@
+<html>
+
+{% extends 'base.html' %}
+
+{% block alert %}
+{% if alert_msg %}
+<div class="alert alert-{{ alert_msg.type }}" role="alert">
+  {{ alert_msg.msg }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block title %}
+F-rated Movie Search
+{% endblock %}
+
+{% block lead %}
+이름, IMDB id 로 영화를 조회 / 수정할 수 있습니다.
+{% endblock %}
+
+{% block main_body %}
+<div class="input-group mb-1">
+    <div class="input-group-append">
+<form method="GET" action="/searchbykeyword">
+    <input type="submit" class="btn float-right btn-primary" value="검색"/>
+    </div>
+    <input name="keyword" style="margin-bottom:10px" class="form-control" type="text" placeholder="검색할 영화의 키워드를 입력하세요 - ex) super-powers, triple-f-rated"/>
+  </form>
+</div>
+<div class="input-group mb-2">
+    <div class="input-group-append">
+<form method="GET" action="/searchbyid">
+    <input type="submit" class="btn float-right btn-primary" value="검색"/>
+    </div>
+    <input name="keyword" style="margin-bottom:10px" class="form-control" type="text" placeholder="검색할 영화의 IMDB id를 입력하세요 - ex) tt0103074"/>
+  </form>
+</div>
+<div class="input-group mb-3">
+    <div class="input-group-append">
+<form method="GET" action="/searchbytitle">
+    <input type="submit" class="btn float-right btn-primary" value="검색"/>
+    </div>
+    <input name="movietitle" style="margin-bottom:10px" class="form-control" type="text" placeholder="검색할 영화의 제목을 입력하세요 - ex) Captain Marvel"/>
+  </form>
+</div>
+{% if movies %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">제목</th>
+      <!-- <th scope="col">포스터</th> -->
+      <th scope="col">연도</th>
+      <th scope="col">장르</th>
+      <th scope="col">키워드</th>
+      <th scope="col">IMDB ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for movie in movies %}
+    <tr>
+      <th scope="row">{{ movie.Title }}</th>
+      <!-- <td>{{ movie.Poster }}</td> -->
+      <td>{{ movie.Year }}</td>
+      <td>{{ movie.Genre }}</td>
+      <td>{{ movie.keywords }}</td>
+      <td>{{ movie.imdbID }}</td>
+      <td>
+        <form action="/db/edit/{{ movie.imdbID }}">
+        <input type="submit" class="btn btn-primary" value="수정"'/>
+      </td>
+     </form>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% endblock %}
+</html>
