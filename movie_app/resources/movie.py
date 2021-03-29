@@ -36,11 +36,16 @@ def make_recommend_function(title):
 
 @movies.route('/recomtest', methods=['GET','POST'])
 def test():
-    #if request.method == 'POST':
-    title = request.args.get('movie')
-    movie = Movie.objects(Title=title).first()
-    results = recommendation_by_title(title)
-    return render_template('ml2.html', movielist = results, movieinfo=movie)
+    if request.method == 'GET': #if request.method == 'POST':
+        try:
+            title = request.args.get('movie')
+            movie = Movie.objects(Title=title).first()
+            results = recommendation_by_title(title)
+            return render_template('ml2.html', movielist = results, movieinfo=movie)
+        except:
+            return render_template('ml2.html')
+
+    #return render_template('ml2.html') #, movielist = results, movieinfo=movie)
 
 
 # @movies.route('/recomtest?movie=<title>')
