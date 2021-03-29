@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 #from twit_app.utils import main_funcs
 from database import db
-from models.models import Movie, Ratings
+from models.models import Movie #, Ratings
 import pdb
 
 bp = Blueprint('main', __name__)

@@ -1,0 +1,60 @@
+<html>
+
+{% extends 'base.html' %}
+
+{% block alert %}
+{% if alert_msg %}
+<div class="alert alert-{{ alert_msg.type }}" role="alert">
+  {{ alert_msg.msg }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block title %}
+F-rated Movie Database
+{% endblock %}
+
+{% block lead %}
+영화를 데이터베이스에 조회, 추가, 및 삭제하는 페이지입니다.
+{% endblock %}
+
+{% block main_body %}
+<form method="POST" action="/db/createbypage">
+  <input name="imdbid" style="margin-bottom:10px" class="form-control" type="text" placeholder="추가할 영화의 IMDB id를 입력하세요 - ex) tt0103074"/>
+  <input type="submit" class="btn btn-primary" value="추가"/>
+  <p><strong>{{ msg }}</strong></p>
+  <p><strong>{{ delete_msg }}</strong></p>
+</form>
+
+{% if movie_list %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">제목</th>
+      <th scope="col">연도</th>
+      <th scope="col">장르</th>
+      <th scope="col">키워드</th>
+      <th scope="col">IMDB ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for movie in movie_list %}
+    <tr>
+      <th scope="row">{{ movie.Title }}</th>
+      <td>{{ movie.Year }}</td>
+      <td>{{ movie.Genre }}</td>
+      <td>{{ movie.keywords }}</td>
+      <td>{{ movie.imdbID }}</td>
+      <td>
+        <form action="/db/delete/{{ movie.imdbID }}">
+        <input type="submit" class="btn btn-primary" value="삭제", href='/db/delete/{{ movie.imdbID }}'/>
+      </td>
+     </form>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% endblock %}
+</html>

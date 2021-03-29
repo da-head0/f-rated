@@ -4,8 +4,6 @@ import requests
 def get_imdb_json(titleid):
   url = "https://movie-database-imdb-alternative.p.rapidapi.com/"
 
-  titleid = titleid
-
   querystring = {"i":titleid,"r":"json"}
 
   headers = {

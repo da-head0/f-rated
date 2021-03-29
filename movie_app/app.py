@@ -19,12 +19,13 @@ app.config["MONGODB_HOST"] = DB_URI
 initialize_db(app)
 #initialize_routes(api) 
 
-from routes import (main_route, user_route)
+from routes import main_route
+from routes.db_route import *
 from resources.movie import *
 
 app.register_blueprint(main_route.bp)
 app.register_blueprint(movies)
-app.register_blueprint(user_route.bp) #, url_prefix='/api')
+app.register_blueprint(db) #, url_prefix='/api')
 
 if __name__ == '__main__':
     app.run()
