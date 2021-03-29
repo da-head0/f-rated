@@ -1,0 +1,21 @@
+<html>
+{% extends 'base.html' %}
+
+{% block title  %}
+영화 추천 페이지
+{% endblock  %}
+
+{% block lead  %}
+추천을 받고 싶은 영화의 제목을 입력하세요
+{% endblock  %}
+
+{% block main_body  %}
+<form method="GET" action="/recomtest">
+<div class="form-group">
+    <label for="inputlg">추천할 영화</label>
+    <input name="movie" class="form-control input-lg" id="inputlg" type="text">
+    <input type="submit" class="btn btn-primary" value="추천받기"/>
+</div>
+</form>
+{% endblock %}
+</html>
