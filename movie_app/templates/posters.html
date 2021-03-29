@@ -1,0 +1,46 @@
+<html>
+
+{% extends 'base.html' %}
+
+{% block alert %}
+{% if alert_msg %}
+<div class="alert alert-{{ alert_msg.type }}" role="alert">
+  {{ alert_msg.msg }}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block title %}
+F-rated Movie Database
+{% endblock %}
+
+{% block lead %}
+데이터베이스의 F-rated 2점 이상 영화의 포스터.
+{% endblock %}
+
+{% block main_body %}
+<!-- <form method="POST" action="/db/createbypage">
+  <input name="imdbid" style="margin-bottom:10px" class="form-control" type="text" placeholder="추가할 영화의 IMDB id를 입력하세요 - ex) tt0103074"/>
+  <input type="submit" class="btn btn-primary" value="추가"/>
+</form> -->
+
+{% if movie_list %}
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    {% for movie in movie_list %}
+    <tr>
+        <img src={{ movie.Poster }} class="float-center" alt="poster">
+         <td>{{ movie.Title }}</td>
+     </form>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% endblock %}
+</html>

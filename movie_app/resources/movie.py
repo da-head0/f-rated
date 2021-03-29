@@ -22,6 +22,12 @@ movies = Blueprint('movies', __name__)
 #     allmovie = Movie.objects(Title=Title) # 이렇게 하니까 models.py에 있는 repr이 실행되어 원하는 항목만 조회할 수 있음
 #     return f'{allmovie}', 200
 
+@movies.route('/gallery', methods=['GET'])
+def gallery_poster():
+    movies = Movie.objects(Poster__exists = True).order_by('-_id')[:100]
+    #movies = Movie.objects(imdbRating__gte=5.0).order_by('-_id')[:100]
+    return render_template('posters.html', movie_list=movies) #msg=delete_msg
+
 @movies.route('/searchbykeyword', methods=['GET'])
 def search_movie_by_keyword():
     keyword = request.args.get('keyword')

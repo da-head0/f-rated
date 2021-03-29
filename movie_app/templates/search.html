@@ -59,7 +59,8 @@ F-rated Movie Search
     {% for movie in movies %}
     <tr>
       <th scope="row">{{ movie.Title }}</th>
-      <!-- <td>{{ movie.Poster }}</td> -->
+      <img src={{ movie.Poster }} class="rounded mx-auto d-block" alt="poster">
+      <br>
       <td>{{ movie.Year }}</td>
       <td>{{ movie.Genre }}</td>
       <td>{{ movie.keywords }}</td>

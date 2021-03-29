@@ -54,7 +54,7 @@ def movie_index():
     
     alert_msg = msg_processor(msg_code) if msg_code is not None else None
 
-    movies = Movie.objects()
+    movies = Movie.objects().order_by('-Year')
 
     return render_template('movie.html', alert_msg=alert_msg, movie_list=movies)
 
