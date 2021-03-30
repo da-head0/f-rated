@@ -1,5 +1,7 @@
 # 🎥 머신러닝 기반 여성 영화 추천 사이트
-https://img.shields.io/badge/python-3.8.8-blue https://img.shields.io/badge/-flask--mongoengine-lightgrey https://img.shields.io/badge/-mongodb-brightgreen https://img.shields.io/badge/pandas-1.2.3-blue https://img.shields.io/badge/scikit--learn-0.24.1-yellow
+![image](https://img.shields.io/badge/python-3.8.8-blue) ![image](https://img.shields.io/badge/-flask--mongoengine-lightgrey) ![image](https://img.shields.io/badge/-mongodb-brightgreen) ![image](https://img.shields.io/badge/pandas-1.2.3-blue) ![image](https://img.shields.io/badge/scikit--learn-0.24.1-yellow)
+
+###
 www.f-rated.com
 ---
 ![image](https://user-images.githubusercontent.com/61692777/112993181-e0ac0a00-91a3-11eb-9ced-5d1d3a8c688c.png)
@@ -15,26 +17,26 @@ www.f-rated.com
 본 사이트는 위 3가지 조건 중 2가지 이상을 만족하는 영화 890종을 바탕으로
 영화의 키워드, 장르, 배우, 감독, 수상실적을 분석해 취향에 맞는 영화를 추천합니다.
 
-![image](https://user-images.githubusercontent.com/61692777/112963807-b26a0280-9182-11eb-8893-256ba8930520.png)
-![image](https://user-images.githubusercontent.com/61692777/112964022-e5ac9180-9182-11eb-80c1-deacc0d81fe4.png)
+<image src="https://user-images.githubusercontent.com/61692777/112963807-b26a0280-9182-11eb-8893-256ba8930520.png" width="600">
+<image src="https://user-images.githubusercontent.com/61692777/112964022-e5ac9180-9182-11eb-80c1-deacc0d81fe4.png" width="600">
 
 ### 영화 제목, IMDb ID, 키워드로 영화 검색
-![image](https://user-images.githubusercontent.com/61692777/112994695-77c59180-91a5-11eb-8678-594551c505c9.png)
+<image src="https://user-images.githubusercontent.com/61692777/112994695-77c59180-91a5-11eb-8678-594551c505c9.png" width="600">
 
 
 ### 여성 영화 데이터베이스
-![image](https://user-images.githubusercontent.com/61692777/112994538-52388800-91a5-11eb-9979-c116c0872fd7.png)
-![image](https://user-images.githubusercontent.com/61692777/112994790-93309c80-91a5-11eb-9e44-ee5533d49eba.png)
+<image src="https://user-images.githubusercontent.com/61692777/112994538-52388800-91a5-11eb-9979-c116c0872fd7.png" width="600">
+<image src="https://user-images.githubusercontent.com/61692777/112994790-93309c80-91a5-11eb-9e44-ee5533d49eba.png" width="600">
 
 
 ### 머신러닝 알고리즘
-![image](https://user-images.githubusercontent.com/61692777/112993939-b1e26380-91a4-11eb-8335-bab972ab9cc2.png)
-![image](https://user-images.githubusercontent.com/61692777/112993971-ba3a9e80-91a4-11eb-92d7-62ed71d780ca.png)
-
+- sklearn의 CountVectorizer로 영화의 키워드+장르+배우+감독+수상실적을 조합해 단어의 등장여부, 출현빈도를 벡터화하고
+- cosine_similarity 방식으로 영화별 유사도를 측정, 가장 유사한 영화 3개를 추천합니다. 
 
 
 ### 스키마
-![image](https://user-images.githubusercontent.com/61692777/112963202-1b9d4600-9182-11eb-9258-611eae250151.png)
+<image src="https://user-images.githubusercontent.com/61692777/112963202-1b9d4600-9182-11eb-9258-611eae250151.png)
+Mongodb, flask-mongoengine 사용
 
 
 ### 사용한 API, 패키지
