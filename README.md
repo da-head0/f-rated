@@ -12,8 +12,8 @@ www.f-rated.com
 (IMDb 데이터셋 바탕, 1940-2020년 영화 기반, 전체 흥행 영화 탑 1000 분석)
 
 이러한 영화 산업의 불균형을 타파하기 위해, 
-
 2014년 영국의 바스 영화제의 프로듀서 홀리 타퀴니는 F-Rated 지표를 만들었습니다.
+
 <image src="https://user-images.githubusercontent.com/61692777/112964576-6bc8d800-9183-11eb-98c5-381522f9feab.png" width="700">
 ---
 
@@ -21,8 +21,9 @@ www.f-rated.com
 
 영화의 키워드, 장르, 배우, 감독, 수상실적을 분석해 취향에 맞는 영화를 추천합니다.
 
-<image src="https://user-images.githubusercontent.com/61692777/112963807-b26a0280-9182-11eb-8893-256ba8930520.png" width="700">
-<image src="https://user-images.githubusercontent.com/61692777/112964022-e5ac9180-9182-11eb-80c1-deacc0d81fe4.png" width="700">
+<image src= "https://user-images.githubusercontent.com/61692777/112998138-b446bc80-91a8-11eb-9a14-a7153fea557b.png" width="700">
+<image src="https://user-images.githubusercontent.com/61692777/112998258-d50f1200-91a8-11eb-9071-b2acd55e9886.png" width="700">
+
 
 ---
 ### 영화 제목, IMDb ID, 키워드로 영화 검색
@@ -40,7 +41,7 @@ www.f-rated.com
 
 ---
 ### 스키마
-<image src="https://user-images.githubusercontent.com/61692777/112963202-1b9d4600-9182-11eb-9258-611eae250151.png)
+<image src="https://user-images.githubusercontent.com/61692777/112963202-1b9d4600-9182-11eb-9258-611eae250151.png" width="700">
 Mongodb, flask-mongoengine 사용
 
 ---
