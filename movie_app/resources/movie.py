@@ -32,7 +32,7 @@ def gallery_poster():
 def search_movie_by_keyword():
     keyword = request.args.get('keyword')
     keyword = str(keyword)
-    searchbyid = Movie.objects(keywords__icontains=keyword)
+    searchbyid = Movie.objects.filter(keywords__icontains=keyword)
     #searchbyid = Movie.objects(tags__in=[keyword])
     #return Response(allmovie, mimetype="application/json", status=200)
     return render_template('search.html', movies = searchbyid) #msg=delete_msg
@@ -51,18 +51,19 @@ def search_movie_by_title():
     #return f'{allmovie}', 200
     return render_template('search.html', movies=searchbytitle)
 
-@movies.route('/recommendation/<title>')
-def make_recommend_function(title):
-    movie = Movie.objects(Title=title).first()
-    # if not title:
-    #     return "영화 이름을 제대로 입력하세요. \n ex) Captain Marvel 같이 띄어쓰기 포함", 400
-    # if not movie:
-    #     return "입력하신 영화가 데이터베이스에 존재하지 않습니다. \n 여성 영화가 아닌가요?", 404
-    results = recommendation_by_title(title)
-    return Response(results, mimetype="application/json", status=200)
-    #return render_template('ml.html', movie_list = results) # msg=delete_msg
+# @movies.route('/recommendation/<title>')
+# def make_recommend_function(title):
+#     movie = Movie.objects(Title=title).first()
+#     # if not title:
+#     #     return "영화 이름을 제대로 입력하세요. \n ex) Captain Marvel 같이 띄어쓰기 포함", 400
+#     # if not movie:
+#     #     return "입력하신 영화가 데이터베이스에 존재하지 않습니다. \n 여성 영화가 아닌가요?", 404
+#     results = recommendation_by_title(title)
+#     return Response(results, mimetype="application/json", status=200)
+#     #return render_template('ml.html', movie_list = results) # msg=delete_msg
 
-@movies.route('/recomtest', methods=['GET','POST'])
+# 할수있어... 하자...
+@movies.route('/recommendation', methods=['GET','POST'])
 def test():
     if request.method == 'GET': #if request.method == 'POST':
         try:
@@ -70,9 +71,15 @@ def test():
             movie = Movie.objects(Title=title).first()
             results = recommendation_by_title(title)
             if title:
-                return render_template('ml2.html', movielist = results, movieinfo=movie)
+                resultlist = []
+                for mov in results:
+                    mov_result = Movie.objects(Title=mov).first()
+                    resultlist.append(mov_result)
+
+                return render_template('ml2.html', movielist = results, movieinfo=movie, resultlist=resultlist)
             else:
-                return render_template('ml2.html')
+                msg = "입력하신 영화가 데이터베이스에 존재하지 않습니다. \n 여성 영화가 아닌가요?"
+                return render_template('ml2.html',msg=msg)
 
         except:
             return render_template('ml2.html')

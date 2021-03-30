@@ -1,29 +1,61 @@
 <html>
 {% extends 'base.html' %}
 
-{% block title  %}
+{% block title %}
 영화 추천 페이지
-{% endblock  %}
+{% endblock %}
 
-{% block lead  %}
-추천을 받고 싶은 영화의 제목을 입력하세요
-{% endblock  %}
+{% block lead %}
+좋아하는, 재밌게 본 영화의 제목을 입력하세요
+{% endblock %}
 
-{% block main_body  %}
-<form method="GET" action="/recomtest">
-    <label for="inputlg">입력한 영화의 키워드 / 장르 / 배우 / 감독 / 수상이력을 분석해 추천합니다. </label>
-    <input name="movie" class="form-control input-lg" id="inputlg" type="text" value="ex) Frozen, Thelma & Louise">
+{% block main_body %}
+<form method="GET" action="/recommendation">
+    <label for="inputlg">키워드 / 장르 / 배우 / 감독 / 수상이력을 분석해 추천합니다. </label>
+    <input name="movie" class="form-control input-lg" id="inputlg" type="text" value="Captain Marvel">
     <br>
-    <input type="submit" class="btn btn-primary btn-sm btn-block" value="추천받기"/>
+    <input type="submit" class="btn btn-primary btn-sm btn-block" value="추천받기" />
+    <p> {{msg}}</p>
     {% if movieinfo %}
+    <div class="card mb-3" style="max-width: 660px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src={{ movieinfo.Poster }} class="card-img" alt="poster">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">입력하신 영화는 {{ movieinfo.Title }} ({{movieinfo.Year}}) 입니다.</h5>
+              <p class="card-text">Genre : {{movieinfo.Genre}}</p>
+              <p class="card-text">{{ movieinfo.keywords }}</p>
+              <p class="card-text">IMDB rating : {{movieinfo.imdbRating}}</p>
+              <p class="card-text">RottenTomatoes : {{movieinfo.RottenTomatoes}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     <br>
-    <h3> {{movieinfo.Title}} 과 유사한 영화는 </h3>
+    <h2 class="text-center">추천 영화</h2>
     <br>
-    {% for item in movielist %}
-    <h5>{{ item }}</h5>
-    {% endfor %}
-    <h5>입니다.</h5>
+    <div class="row">
+    {% for item in resultlist %}
+    <div class="col-sm-4">
+    <div class="card" style="width:300px">
+        <img src={{ item.Poster }} alt="poster">
+        <div class="card-body">
+          <h4 class="card-title">{{ item.Title }} ({{item.Year}})</h4>
+          <p class="card-text">Genre : {{item.Genre}}</p>
+          <p class="card-text">{{ item.keywords }}</p>
+          <p class="card-text">IMDB rating : {{item.imdbRating}}</p>
+          <p class="card-text">RottenTomatoes : {{item.RottenTomatoes}}</p>
+          <a href="#" class="btn btn-danger">See in Netflix</a>
+        </div>
+      </div>
+    </div>
+        {% endfor %}
+    </div>
+    </div>
 </form>
 {% endif %}
 {% endblock %}
+
 </html>

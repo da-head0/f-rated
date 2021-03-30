@@ -20,61 +20,69 @@ F-rated Movie Search
 
 {% block main_body %}
 <div class="input-group mb-1">
-    <div class="input-group-append">
-<form method="GET" action="/searchbykeyword">
-    <input type="submit" class="btn float-right btn-primary" value="검색"/>
-    </div>
-    <input name="keyword" style="margin-bottom:10px" class="form-control" type="text" placeholder="검색할 영화의 키워드를 입력하세요 - ex) super-powers, triple-f-rated"/>
+  <div class="input-group-append">
+    <form method="GET" action="/searchbykeyword">
+      <input type="submit" class="btn float-right btn-primary" value="검색" />
+  </div>
+  <input name="keyword" style="margin-bottom:10px" class="form-control" type="text"
+    placeholder="검색할 영화의 키워드를 입력하세요 - ex) triple-f-rated, female-protagonist" />
   </form>
 </div>
 <div class="input-group mb-2">
-    <div class="input-group-append">
-<form method="GET" action="/searchbyid">
-    <input type="submit" class="btn float-right btn-primary" value="검색"/>
-    </div>
-    <input name="keyword" style="margin-bottom:10px" class="form-control" type="text" placeholder="검색할 영화의 IMDB id를 입력하세요 - ex) tt0103074"/>
+  <div class="input-group-append">
+    <form method="GET" action="/searchbyid">
+      <input type="submit" class="btn float-right btn-primary" value="검색" />
+  </div>
+  <input name="imdbid" style="margin-bottom:10px" class="form-control" type="text"
+    placeholder="검색할 영화의 IMDB id를 입력하세요 - ex) tt0103074" />
   </form>
 </div>
 <div class="input-group mb-3">
-    <div class="input-group-append">
-<form method="GET" action="/searchbytitle">
-    <input type="submit" class="btn float-right btn-primary" value="검색"/>
-    </div>
-    <input name="movietitle" style="margin-bottom:10px" class="form-control" type="text" placeholder="검색할 영화의 제목을 입력하세요 - ex) Captain Marvel"/>
+  <div class="input-group-append">
+    <form method="GET" action="/searchbytitle">
+      <input type="submit" class="btn float-right btn-primary" value="검색" />
+  </div>
+  <input name="movietitle" style="margin-bottom:10px" class="form-control" type="text"
+    placeholder="검색할 영화의 제목을 입력하세요 - ex) Captain Marvel" />
   </form>
 </div>
 {% if movies %}
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">제목</th>
-      <!-- <th scope="col">포스터</th> -->
-      <th scope="col">연도</th>
-      <th scope="col">장르</th>
-      <th scope="col">키워드</th>
-      <th scope="col">IMDB ID</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for movie in movies %}
-    <tr>
-      <th scope="row">{{ movie.Title }}</th>
-      <img src={{ movie.Poster }} class="rounded mx-auto d-block" alt="poster">
-      <br>
-      <td>{{ movie.Year }}</td>
-      <td>{{ movie.Genre }}</td>
-      <td>{{ movie.keywords }}</td>
-      <td>{{ movie.imdbID }}</td>
-      <td>
-        <form action="/db/edit/{{ movie.imdbID }}">
-        <input type="submit" class="btn btn-primary" value="수정"'/>
-      </td>
-     </form>
-    </tr>
+{% for movie in movies %}
+<div class="card mb-3"">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src={{ movie.Poster }} class="card-img" alt="poster">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title">{{ movie.Title }} ({{movie.Year}})</h3>
+        <p class="card-text"><strong>Country</strong> : {{movie.Country}}</p>
+        <p class="card-text"><strong>Runtime</strong> : {{movie.Runtime}}</p>
+        <p class="card-text"><strong>Director</strong> : {{movie.Director}}</p>
+        <p class="card-text"><strong>Writer</strong> : {{movie.Writer}}</p>
+        <p class="card-text"><strong>Actors</strong> : {{movie.Actors}}</p>
+        <p class="card-text"><strong>Genre</strong> : {{movie.Genre}}</p>
+        <p class="card-text"><strong>Keywords</strong> : {{ movie.keywords }}</p>
+        <p class="card-text"><strong>IMDB rating</strong> : {{movie.imdbRating}}</p>
+        <p class="card-text"><strong>RottenTomatoes</strong> : {{movie.RottenTomatoes}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="input-group mb-3">
+      <div class="input-group-append">
+        <form method="POST" action="/db/edit/{{ movie.imdbID }}"">
+          <input type="submit" class="btn float-right btn-primary" value="수정" />
+      </div>
+      <input name="modifiedkeyword" style="margin-bottom:10px" class="form-control" type="text"
+        placeholder="수정할 내용을 입력해 주세요" />
+      </form>
+    </div>
     {% endfor %}
   </tbody>
 </table>
 {% endif %}
 
 {% endblock %}
+
 </html>

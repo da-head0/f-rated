@@ -92,10 +92,10 @@ def create_by_page():
     return render_template('movie.html', msg=msg)
     #return redirect(url_for('db.movie_index', msg_code=0), code=400)
 
-@db.route('/db/edit/<imdbID>', methods=['GET','PUT'])
+@db.route('/db/edit/<imdbID>', methods=['GET','POST'])
 def update_movie(imdbID):
     movie = Movie.objects(imdbID=imdbID).first()
-    newkeywords = request.form['keywords']
+    newkeywords = request.form['modifiedkeyword']
     Movie(keywords = newkeywords).save() # 키워드 업데이트
     msg = f"영화가 성공적으로 수정되었습니다 \n 수정 내용 = {newkeywords}"
     return render_template('search.html', msg=msg)

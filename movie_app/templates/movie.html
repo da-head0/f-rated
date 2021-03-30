@@ -19,11 +19,23 @@ F-rated Movie Database
 {% endblock %}
 
 {% block main_body %}
+<div class="input-group mb-3">
+  <div class="input-group-append">
 <form method="POST" action="/db/createbypage">
-  <input name="imdbid" style="margin-bottom:10px" class="form-control" type="text" placeholder="추가할 영화의 IMDB id를 입력하세요 - ex) tt0103074"/>
   <input type="submit" class="btn btn-primary" value="추가"/>
+</div>
+  <input name="imdbid" style="margin-bottom:10px" class="form-control" type="text" placeholder="추가할 영화의 IMDB id를 입력하세요 - ex) tt0103074"/>
+</div>
+  {% if msg %}
+  <div class="alert alert-info">
   <p><strong>{{ msg }}</strong></p>
+  </div>
+  {% endif %}
+  {% if delete_msg %}
+  <div class="alert alert-dark">
   <p><strong>{{ delete_msg }}</strong></p>
+  </div>
+  {% endif %}
 </form>
 
 {% if movie_list %}
