@@ -1,4 +1,4 @@
-# www.f-rated.com [링크](www.f-rated.com)
+### www.f-rated.com
 ![image](https://user-images.githubusercontent.com/61692777/112963240-2526ae00-9182-11eb-800a-11eda5edca02.png)
 
 역대 흥행 영화 분석 결과, **여성 감독은 전체의 3%, 여성 각본가는 전체의 5.4%에 불과합니다.** 
