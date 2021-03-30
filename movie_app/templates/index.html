@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
+<div class="panel panel-primary panel-transparent">
 <div class="container">
     <div class="highlight--img">
         <img src="" style="width:100%"
@@ -7,20 +8,47 @@
     </div>
     {% endblock %}
     {% block main_body  %}
-            <h3>여성 감독이 연출했거나</h3>
-            <h3>여성 작가가 각본을 썼거나</h3>
-            <h3>여성 캐릭터가 중요한 역할을 수행하는 영화</h3>
+    <div class="container-fluid bg-danger text-white">
+        <br>
+    <h1 class="text-center">WHERE ARE THE WOMEN?</h1>
+    <h3 class="text-center">역대 흥행 영화 1000개의 제작자 중 여성의 비율</h3>
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5 class="text-center">전체 감독의</h5>
+            <h1 class="text-center">3%</h1>
+          </div>
+          <div class="col">
+            <h5 class="text-center">전체 각본가의</h5>
+            <h1 class="text-center">5.4%</h1>
+          </div>
+          <div class="col">
+            <h5 class="text-center">전체 제작자의</h5>
+            <h1 class="text-center">10.4%</h1>
             <br>
-            <p>위의 조건을 모두 만족하는 영화는 트리플 F등급이라고 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <br>
+      <br>
+      <div class="row"></div>
+      <p class="text-center"><strong>F-Rated</strong>는 여성을 지지하고 홍보하며 영화 산업의 불균형을 바로잡기 위해</p>
+      <p class="text-center">2014년 영국의 바스 영화제(Bath Film Festival)의 프로듀서
+          홀리 타퀴니(Holly Tarquini)가 만든 지표입니다.</p>
+          <p class="text-center">90개가 넘는 영화제와 영화관에서 F-Rated을 사용하고 있습니다.</p>
+          <br>
+          <br>
+            <h5 class="text-center">- 여성 감독이 연출했거나</h5>
+            <h5 class="text-center">- 여성 작가가 각본을 썼거나</h5>
+            <h5 class="text-center">- 여성 캐릭터가 중요한 역할을 수행하는 영화</h5>
             <br>
-            <p>본 사이트는 위의 3가지 조건 중 2가지 이상을 만족하는 영화 890여종을 모아,</p>
-            <p>영화의 키워드, 장르, 배우, 수상내역을 바탕으로 영화를 추천합니다.</p>
-
             <br>
-            <p>F-Rated는 여성을 지지하고 홍보하며 영화 산업의 불균형을 바로잡기 위해</p>
-            <p>2014년 영국의 바스 영화제(Bath Film Festival)의 프로듀서
-                홀리 타퀴니(Holly Tarquini)가 만든 지표입니다.</p>
-            <p>90개가 넘는 영화제와 영화관에서 F-Rated을 사용하고 있습니다.</p>
+            <p class="text-center">본 사이트는 위의 3가지 조건 중 2가지 이상을 만족하는 영화 890여종을 모아,</p>
+            <p class="text-center">영화의 키워드, 장르, 배우, 수상내역을 바탕으로 영화를 추천합니다.</p>
+            <br>
             
+</div>
 </div>
 {% endblock %}
