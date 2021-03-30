@@ -1,5 +1,7 @@
 ### www.f-rated.com
-![image](https://user-images.githubusercontent.com/61692777/112963240-2526ae00-9182-11eb-800a-11eda5edca02.png)
+
+---
+![image](https://user-images.githubusercontent.com/61692777/112964824-a0d52a80-9183-11eb-9d2c-ba85aaa58a12.png)
 
 역대 흥행 영화 분석 결과, **여성 감독은 전체의 3%, 여성 각본가는 전체의 5.4%에 불과합니다.** 
 (IMDb 데이터셋 바탕, 1940-2020년 영화 기반, 전체 흥행 영화 탑 1000 분석)
