@@ -52,4 +52,4 @@ Mongodb, flask-mongoengine 사용
 - [IMDbPY](https://imdbpy.github.io/)
 
 ### 참고
-[Getting Started with a Movie Recommendation System](https://www.kaggle.com/ibtesama/getting-started-with-a-movie-recommendation-system)
+- [Getting Started with a Movie Recommendation System](https://www.kaggle.com/ibtesama/getting-started-with-a-movie-recommendation-system)
