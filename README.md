@@ -1,8 +1,10 @@
+###
+www.f-rated.com
+
 # 🎥 머신러닝 기반 여성 영화 추천 사이트
 ![image](https://img.shields.io/badge/python-3.8.8-blue) ![image](https://img.shields.io/badge/-flask--mongoengine-lightgrey) ![image](https://img.shields.io/badge/-mongodb-brightgreen) ![image](https://img.shields.io/badge/pandas-1.2.3-blue) ![image](https://img.shields.io/badge/scikit--learn-0.24.1-yellow)
 
-###
-www.f-rated.com
+
 ---
 <image src="https://user-images.githubusercontent.com/61692777/112993181-e0ac0a00-91a3-11eb-9ced-5d1d3a8c688c.png" width="700">
 
