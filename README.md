@@ -48,8 +48,8 @@ Mongodb, flask-mongoengine 사용
 
 ---
 ### 사용한 API, 패키지
-[Movie Database (IMDB Alternative) API Documentation](https://rapidapi.com/rapidapi/api/movie-database-imdb-alternative?endpoint=apiendpoint_843d3708-42a9-4240-8a68-2ced0372c20f)
-[IMDbPY](https://imdbpy.github.io/)
+- [Movie Database (IMDB Alternative) API Documentation](https://rapidapi.com/rapidapi/api/movie-database-imdb-alternative?endpoint=apiendpoint_843d3708-42a9-4240-8a68-2ced0372c20f)
+- [IMDbPY](https://imdbpy.github.io/)
 
 ### 참고
-Getting Started with a Movie Recommendation System(https://www.kaggle.com/ibtesama/getting-started-with-a-movie-recommendation-system)
+[Getting Started with a Movie Recommendation System](https://www.kaggle.com/ibtesama/getting-started-with-a-movie-recommendation-system)
