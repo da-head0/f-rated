@@ -38,8 +38,8 @@ www.f-rated.com
 
 ---
 ### 머신러닝 알고리즘
-- sklearn의 CountVectorizer로 영화의 키워드+장르+배우+감독+수상실적을 조합해 단어의 등장여부, 출현빈도를 벡터화하고
-- cosine_similarity 방식으로 영화별 유사도를 측정, 가장 유사한 영화 3개를 추천합니다. 
+- sklearn의 TF-IDF Vectorizer로 영화의 키워드+장르+배우+감독+수상실적을 조합해 단어의 등장여부에 따른 중요도를 계산하고
+- Cosine Similarity 방식으로 영화별 유사도를 측정, 가장 유사한 영화 3개를 추천합니다. 
 
 ---
 ### 스키마
