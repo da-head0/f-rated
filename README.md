@@ -38,7 +38,7 @@ www.f-rated.com
 
 ---
 ### 머신러닝 알고리즘
-- sklearn의 CountVectorizer로 영화의 키워드+장르+배우+감독+수상실적을 조합해 단어의 등장여부에 따른 중요도를 계산하고
+- sklearn의 CountVectorizer로 영화의 키워드+장르+배우+감독+수상실적을 조합해 단어의 등장 빈도를 계산하고
 - Cosine Similarity 방식으로 영화별 유사도를 측정, 가장 유사한 영화 3개를 추천합니다. 
 - TF-IDF Vectorizer 대신 CountVectorizer를 사용한 이유는 배우/감독이 더 많은 영화에서 출연했다고 중요도를 낮추지 않기 위해서입니다.
 
