@@ -1,5 +1,5 @@
 ###
-www.f-rated.com
+http://f-rated.herokuapp.com/
 
 # 🎥 머신러닝 기반 여성 영화 추천 사이트
 ![image](https://img.shields.io/badge/python-3.8.8-blue) ![image](https://img.shields.io/badge/-flask--mongoengine-lightgrey) ![image](https://img.shields.io/badge/-mongodb-brightgreen) ![image](https://img.shields.io/badge/pandas-1.2.3-blue) ![image](https://img.shields.io/badge/scikit--learn-0.24.1-yellow)
